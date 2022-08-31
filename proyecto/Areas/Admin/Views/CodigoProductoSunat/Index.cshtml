@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("leertxt", "CodigoProductoSunat", FormMethod.Post))
+{
+  
+        <div class="form-group">
+            <label>Gargar Archivo De Codigo de Productos SUNAT</label>
+            <input type="file" name="txt" />
+        </div>
+
+
+    <div class="text-right well well-sm">
+        <button data-ajax="true" type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+}
+

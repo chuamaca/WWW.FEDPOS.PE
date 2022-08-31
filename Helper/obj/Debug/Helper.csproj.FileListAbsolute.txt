@@ -1,0 +1,33 @@
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\19- Autenticacion\proyecto\Helper\bin\Debug\Helper.dll
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\19- Autenticacion\proyecto\Helper\bin\Debug\Helper.pdb
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\19- Autenticacion\proyecto\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\19- Autenticacion\proyecto\Helper\obj\Debug\Helper.dll
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\19- Autenticacion\proyecto\Helper\obj\Debug\Helper.pdb
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\20- Informacion personal\proyecto\Helper\bin\Debug\Helper.dll
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\20- Informacion personal\proyecto\Helper\bin\Debug\Helper.pdb
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\20- Informacion personal\proyecto\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\20- Informacion personal\proyecto\Helper\obj\Debug\Helper.dll
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\20- Informacion personal\proyecto\Helper\obj\Debug\Helper.pdb
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\25- Mostrando perfil profesional\proyecto\Helper\bin\Debug\Helper.dll
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\25- Mostrando perfil profesional\proyecto\Helper\bin\Debug\Helper.pdb
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\25- Mostrando perfil profesional\proyecto\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\25- Mostrando perfil profesional\proyecto\Helper\obj\Debug\Helper.dll
+D:\Mis Cursos\ASP.NET MVC Creando un portafolio profesional\25- Mostrando perfil profesional\proyecto\Helper\obj\Debug\Helper.pdb
+D:\DESARROLLO DE APPS\C#\Portafolio\ProyectoPortafolio\proyecto\Helper\bin\Debug\Helper.dll
+D:\DESARROLLO DE APPS\C#\Portafolio\ProyectoPortafolio\proyecto\Helper\bin\Debug\Helper.pdb
+D:\DESARROLLO DE APPS\C#\Portafolio\ProyectoPortafolio\proyecto\Helper\obj\Debug\Helper.dll
+D:\DESARROLLO DE APPS\C#\Portafolio\ProyectoPortafolio\proyecto\Helper\obj\Debug\Helper.pdb
+D:\DESARROLLO DE APPS\C#\Portafolio\ProyectoPortafolio\proyecto\Helper\obj\Debug\Helper.csprojAssemblyReference.cache
+D:\DESARROLLO DE APPS\C#\Portafolio\ProyectoPortafolio\proyecto\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+D:\DESARROLLO DE APPS\C#\ProyectoPortafolio\proyecto\Helper\bin\Debug\Helper.dll
+D:\DESARROLLO DE APPS\C#\ProyectoPortafolio\proyecto\Helper\bin\Debug\Helper.pdb
+D:\DESARROLLO DE APPS\C#\ProyectoPortafolio\proyecto\Helper\obj\Debug\Helper.csprojAssemblyReference.cache
+D:\DESARROLLO DE APPS\C#\ProyectoPortafolio\proyecto\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+D:\DESARROLLO DE APPS\C#\ProyectoPortafolio\proyecto\Helper\obj\Debug\Helper.dll
+D:\DESARROLLO DE APPS\C#\ProyectoPortafolio\proyecto\Helper\obj\Debug\Helper.pdb
+D:\DESARROLLO DE APPS\C#\Facturacion Electronica WEB DPOS\WWW.FEDPOS.PE\Helper\bin\Debug\Helper.dll
+D:\DESARROLLO DE APPS\C#\Facturacion Electronica WEB DPOS\WWW.FEDPOS.PE\Helper\bin\Debug\Helper.pdb
+D:\DESARROLLO DE APPS\C#\Facturacion Electronica WEB DPOS\WWW.FEDPOS.PE\Helper\obj\Debug\Helper.csprojAssemblyReference.cache
+D:\DESARROLLO DE APPS\C#\Facturacion Electronica WEB DPOS\WWW.FEDPOS.PE\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+D:\DESARROLLO DE APPS\C#\Facturacion Electronica WEB DPOS\WWW.FEDPOS.PE\Helper\obj\Debug\Helper.dll
+D:\DESARROLLO DE APPS\C#\Facturacion Electronica WEB DPOS\WWW.FEDPOS.PE\Helper\obj\Debug\Helper.pdb

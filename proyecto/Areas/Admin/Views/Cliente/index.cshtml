@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Cliente";
+}
+
+
+
+<div id="Cliente" class="container">
+
+    <h3 class="page-header remove-margin">
+        <a class="btn btn-primary pull-right" href="~/admin/cliente/crud/">Agregar</a>
+        @ViewBag.Title
+
+    </h3>
+
+
+
+
+    <div id="list" class="table table-striped table-bordered"></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var agrid = $("#list").anexGrid({
+            columnas: [
+                { leyenda: 'NombreCliente', columna: 'NombreCliente', ordenable: true },
+                { leyenda: 'NroDocumento', columna: 'NroDocumento', style: 'width:350px;' },
+                { leyenda: 'Estado', columna: 'Estado',  style: 'width:100px;' },
+                { style: 'width:60px' },
+            ],
+            modelo: [
+                {
+                    propiedad: 'NombreCliente', formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/admin/cliente/crud/")' + obj.IdCliente,
+                            contenido: valor
+                        });
+                    }
+                },
+                { propiedad: 'NroDocumento' },
+                { propiedad: 'Estado' },
+
+                {
+                    formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/admin/cliente/eliminarcliente/")' + obj.IdCliente,
+                            contenido: '<i class="fa fa-trash"></i>',
+                            class: 'btn btn-danger btn-xs btn-block btn-eliminar',
+                        });
+                    }
+                },
+            ],
+            url: '@Url.Content("~/admin/cliente/listarcliente")',
+            paginable: true,
+            limite: [20, 60, 100],
+            columna: 'id',
+            columna_orden: 'DESC'
+        });
+
+        agrid.tabla().on('click', '.btn-eliminar', function () {
+            if (!confirm('¿Está seguro de eliminar este registro?'))
+            {
+                return;
+            }
+
+            $.post($(this).attr('href'), function (r) {
+                if (r.response) agrid.refrescar();
+            }, 'json')
+
+            return false;
+        })
+    })
+</script>

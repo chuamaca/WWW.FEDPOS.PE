@@ -1,0 +1,352 @@
+﻿@model Producto
+
+
+@{
+    ViewBag.Title = "Producto";
+
+
+
+    List<Categoria> milistacategoria = ViewBag.micategoria;
+    List<UnidadMedida> milistaunidadmedida = ViewBag.miunidadmedida;
+
+}
+
+<h3 class="page-header">
+    @(Model.IdProducto > 0 ? Model.Descripcion : "Nuevo registro")
+</h3>
+
+<ol class="breadcrumb">
+    <li><a href="~/admin/Producto">Producto</a></li>
+    <li class="active">@(Model.IdProducto > 0 ? Model.Descripcion : "Nuevo registro")</li>
+</ol>
+
+@using (Html.BeginForm("guardarproducto", "producto", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.IdProducto)
+    @Html.HiddenFor(x => x.Usa_inventarios, new { @class = "form-control" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Impuesto)
+        @Html.TextBoxFor(x => x.Impuesto, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Impuesto, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Descripcion)
+        @Html.TextBoxFor(x => x.Descripcion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Descripcion, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Categoria)
+        <select class="micategoria form-control" name="IdCategoria">
+            @foreach (var c in milistacategoria)
+            {
+                <option @(Model.IdCategoria == (c.IdCategoria) ? "selected" : "") value="@c.IdCategoria">@c.Codigo    @c.Descripcion</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Se_vende_a) <br />
+        <label> @Html.RadioButtonFor(x => x.Se_vende_a, "Unidad") Unidad</label>
+        <label>   @Html.RadioButtonFor(x => x.Se_vende_a, "Granel") Granel </label>
+
+
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.CodUm)
+        <select class="miunidad form-control" name="CodUm">
+            @foreach (var um in milistaunidadmedida)
+            {
+                <option @(Model.CodUm == (um.Codigo) ? "selected" : "") value="@um.Codigo">@um.Descripcion  </option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Precio_de_compra)
+        @Html.TextBoxFor(x => x.Precio_de_compra, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Precio_de_compra, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(x => x.Precio_de_venta) <p id="demo" style="display: none ">El Precio de Venta es Menor, Puedes ir a la Quiebra</p>
+        @Html.TextBoxFor(x => x.Precio_de_venta, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Precio_de_venta, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+
+        <input class="form-check-input" type="checkbox" id="IdventaAlMayor" name="ventaAlMayor">
+        <label class="form-check-label" for="inlineCheckbox1">Venta Al Por Mayor</label>
+
+    </div>
+    if (Model.Precio_mayoreo == 0)
+    {
+        <div class="form-group well" id="preciovMayor" style="display: none">
+            @Html.LabelFor(x => x.Precio_mayoreo)
+            @Html.TextBoxFor(x => x.Precio_mayoreo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Precio_mayoreo, null, new { @class = "label label-danger" })
+        </div>
+        <div class="form-group well" id="preciovMayorDesde" style="display: none">
+            @Html.LabelFor(x => x.A_partir_de)
+            @Html.TextBoxFor(x => x.A_partir_de, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.A_partir_de, null, new { @class = "label label-danger" })
+        </div>
+    }
+    else if (Model.Precio_mayoreo > 0)
+    {
+        <div class="form-group well" id="preciovMayor">
+            @Html.LabelFor(x => x.Precio_mayoreo)
+            @Html.TextBoxFor(x => x.Precio_mayoreo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Precio_mayoreo, null, new { @class = "label label-danger" })
+        </div>
+        <div class="form-group well" id="preciovMayorDesde">
+            @Html.LabelFor(x => x.A_partir_de)
+            @Html.TextBoxFor(x => x.A_partir_de, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.A_partir_de, null, new { @class = "label label-danger" })
+        </div>
+    }
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Codigo)
+        @Html.TextBoxFor(x => x.Codigo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Codigo, null, new { @class = "label label-danger" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.CodigoSunat)
+        @Html.TextBoxFor(x => x.CodigoSunat, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CodigoSunat, null, new { @class = "label label-danger" })
+    </div>
+
+
+ 
+   
+
+
+    <div class="form-group">
+        <input class="form-check-input" type="checkbox" id="idUsaInventario" name="nmUsaInventario">
+        <label class="form-check-label" for="inlineCheckbox2">USA INVENTARIO</label>
+    </div>
+
+
+
+
+
+        if (Model.IdProducto != 0)
+            {
+                <div class="form-group well" id="mostrarStock">
+                    @Html.LabelFor(x => x.Stock)
+                    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Stock, null, new { @class = "label label-danger" })
+                </div>
+
+                <div class="form-group well" id="mostrarStockMinimo">
+                    @Html.LabelFor(x => x.Stock_minimo)
+                    @Html.TextBoxFor(x => x.Stock_minimo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Stock_minimo, null, new { @class = "label label-danger" })
+                </div>
+            }
+            else if(Model.IdProducto==0)
+            {
+                <div class="form-group well" style="display: none" id="mostrarStock">
+                    @Html.LabelFor(x => x.Stock)
+                    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Stock, null, new { @class = "label label-danger" })
+                </div>
+
+                <div class="form-group well" style="display: none" id="mostrarStockMinimo">
+                    @Html.LabelFor(x => x.Stock_minimo)
+                    @Html.TextBoxFor(x => x.Stock_minimo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Stock_minimo, null, new { @class = "label label-danger" })
+                </div>
+            }
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Fecha_de_vencimiento)
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </span>
+                @Html.TextBoxFor(x => x.Fecha_de_vencimiento, new { @class = "form-control datepicker" })
+            </div>
+            @Html.ValidationMessageFor(x => x.Fecha_de_vencimiento, null, new { @class = "label label-danger" })
+        </div>
+
+
+
+        <div class="text-right">
+            <button type="submit" data-ajax="true" class="btn btn-primary">Guardar</button>
+        </div>
+
+        <script>
+            //Usado para cargar en el load
+            window.onload = function (e) {
+                console.log("window.onload");
+                let miprecioMYV = $("#Precio_mayoreo").val();
+                let mistock = $("#Stock").val();
+               
+
+                if (miprecioMYV > 0) {
+                    $('#preciovMayor').show();
+                    $('#preciovMayorDesde').show();
+                    $("#IdventaAlMayor").attr('checked', true);
+                }
+
+               
+                if (mistock > 0) {
+                    $('#mostrarStock').show();
+                    $('#mostrarStockMinimo').show();
+                    $("#idUsaInventario").attr('checked', true);
+
+                } else if (mistock == "Ilimitado") {
+                    $('#mostrarStock').hide();
+                    $('#mostrarStockMinimo').hide();
+                    $('#idUsaInventario').attr('checked', false);
+                }
+
+
+
+            };
+
+
+        </script>
+        <script>
+            //Inicio-Usados para el selector
+            jQuery(document).ready(function ($) {
+                $(document).ready(function () {
+                    $('.micategoria').select2();
+                });
+            });
+        </script>
+
+
+        <script>
+
+            $(document).ready(function () {
+                $("input[name=Precio_de_venta]").change(function () {
+
+                    let precioc = $("#Precio_de_compra").val();
+                    var preciov = $(this).val();
+                    if (preciov <= precioc) {
+                        var x = document.getElementById("demo");
+                        $('#demo').show();
+                        // Get the element with id="demo"
+                        x.style.color = "red";                     // Change the color of the element
+                    } else {
+                        $('#demo').hide();
+                    }
+                });
+
+            });
+
+        </script>
+
+
+        <script>
+
+            $(document).ready(function () {
+
+                $("input[id=IdventaAlMayor]").on('change', function () {
+
+
+                    let estadoventaAlMayor = $("#IdventaAlMayor").is(':checked');
+
+                    console.log("EL Venta al por mayor es " + estadoventaAlMayor);
+
+                    if (estadoventaAlMayor == true) {
+                        $('#preciovMayor').show();
+                        $('#preciovMayorDesde').show();
+                    } else if (estadoventaAlMayor == false) {
+                        $('#preciovMayor').hide();
+                        $('#preciovMayorDesde').hide();
+                    }
+
+
+
+
+
+                });
+
+            });
+
+        </script>
+
+
+        <script>
+
+            $(document).ready(function () {
+
+                $("input[id=idUsaInventario]").on('change', function () {
+
+                    let usoInv = $("#idUsaInventario").is(':checked');
+
+                    console.log("Uso de Inventario es " + usoInv);
+                    if (usoInv == true) {
+
+                        let ddsi = $('#Usa_inventarios').val("SI");
+
+                        $("#Stock").val(0);
+                        $("#Stock_minimo").val(0);
+                        $('#mostrarStock').show();
+                        $('#mostrarStockMinimo').show();
+
+                    } else if (usoInv==false) {
+                        let ddno = $('#Usa_inventarios').val("NO");
+                        $('#mostrarStock').hide();
+                        $('#mostrarStockMinimo').hide();
+                    }
+
+
+                });
+
+            });
+
+        </script>
+
+        @*<script>
+
+                $(document).ready(function () {
+                    $("input[name=Usa_inventarios]").change(function () {
+
+                        var variable = $(this).val();
+
+
+                        if (variable == 'SI') {
+                            $("#Stock").val(0);
+                            $("#Stock_minimo").val(0);
+
+                            $('#mostrarStock').show();
+                            $('#mostrarStockMinimo').show();
+                            console.log("Mi variable Usa_inventarios ES ", variable);
+                        }
+
+                        if (variable == 'NO') {
+
+
+                            $('#mostrarStock').hide();
+                            $('#mostrarStockMinimo').hide();
+                            console.log("Mi variable Usa_inventarios ES ", variable);
+                        }
+                    });
+
+                });
+
+            </script>*@
+
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+
+        }
+

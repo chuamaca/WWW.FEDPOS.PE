@@ -1,0 +1,234 @@
+﻿@model Empresa
+
+
+@{
+    ViewBag.Title = "crud";
+}
+
+<h3 class="page-header">
+    @(Model.Idempresa > 0 ? Model.RazonSocial : "Nuevo registro")
+</h3>
+
+<ol class="breadcrumb">
+    <li><a href="~/admin/empresa">Empresa</a></li>
+    <li class="active">@(Model.Idempresa > 0 ? Model.RazonSocial : "Nuevo registro")</li>
+</ol>
+
+
+<div id="yo" class="page">
+
+
+    @using (Html.BeginForm("guardarempresa", "Empresa", FormMethod.Post))
+    {
+
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Información</a></li>
+                <li role="presentation"><a href="#iva" aria-controls="iva" role="tab" data-toggle="tab">IVA - IGV - MONEDA</a></li>
+                <li role="presentation"><a href="#backups" aria-controls="backups" role="tab" data-toggle="tab">Backups</a></li>
+                <li role="presentation"><a href="#facturacion" aria-controls="facturacion" role="tab" data-toggle="tab">Facturacion Electronica</a></li>
+            </ul>
+
+
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="info">
+
+                    @Html.HiddenFor(x => x.Idempresa)
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.RazonSocial)
+                        @Html.TextBoxFor(x => x.RazonSocial, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.RazonSocial, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Ruc)
+                        @Html.TextBoxFor(x => x.Ruc, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Ruc, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.DireccionFiscal)
+                        @Html.TextBoxFor(x => x.DireccionFiscal, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.DireccionFiscal, null, new { @class = "label label-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Logo)
+                        @Html.TextBoxFor(x => x.Logo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Logo, null, new { @class = "label label-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Modo_de_busqueda)
+                        @Html.TextBoxFor(x => x.Modo_de_busqueda, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Modo_de_busqueda, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Correo_para_envio_de_reportes)
+                        @Html.TextBoxFor(x => x.Correo_para_envio_de_reportes, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Correo_para_envio_de_reportes, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Estado)
+                        @Html.TextBoxFor(x => x.Estado, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Estado, null, new { @class = "label label-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Tipo_de_empresa)
+                        @Html.TextBoxFor(x => x.Tipo_de_empresa, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Tipo_de_empresa, null, new { @class = "label label-danger" })
+                    </div>
+
+                
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="iva">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Trabajas_con_impuestos)
+                        @Html.TextBoxFor(x => x.Trabajas_con_impuestos, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Trabajas_con_impuestos, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Impuesto)
+                        @Html.TextBoxFor(x => x.Impuesto, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Impuesto, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Porcentaje_impuesto)
+                        @Html.TextBoxFor(x => x.Porcentaje_impuesto, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Porcentaje_impuesto, null, new { @class = "label label-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.SimboloMoneda)
+                        @Html.TextBoxFor(x => x.SimboloMoneda, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.SimboloMoneda, null, new { @class = "label label-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Redondeo_de_total)
+                        @Html.TextBoxFor(x => x.Redondeo_de_total, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Redondeo_de_total, null, new { @class = "label label-danger" })
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="backups">
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Carpeta_para_copias_de_seguridad)
+                        @Html.TextBoxFor(x => x.Carpeta_para_copias_de_seguridad, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Carpeta_para_copias_de_seguridad, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Ultima_fecha_de_copia_de_seguridad)
+                        @Html.TextBoxFor(x => x.Ultima_fecha_de_copia_de_seguridad, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Ultima_fecha_de_copia_de_seguridad, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Ultima_fecha_de_copia_date)
+                        @Html.TextBoxFor(x => x.Ultima_fecha_de_copia_date, new { @class = "form-control datepicker" })
+                        @Html.ValidationMessageFor(x => x.Ultima_fecha_de_copia_date, null, new { @class = "label label-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Frecuencia_de_copias)
+                        @Html.TextBoxFor(x => x.Frecuencia_de_copias, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Frecuencia_de_copias, null, new { @class = "label label-danger" })
+                    </div>
+
+
+
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="facturacion">
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.VersionUbl)
+                        @Html.TextBoxFor(x => x.VersionUbl, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.VersionUbl, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.VersionEstDoc)
+                        @Html.TextBoxFor(x => x.VersionEstDoc, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.VersionEstDoc, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Ubigeo)
+                        @Html.TextBoxFor(x => x.Ubigeo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Ubigeo, null, new { @class = "label label-danger" })
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.ConectarSunat)
+                        @Html.TextBoxFor(x => x.ConectarSunat, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ConectarSunat, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Servidor)
+                        @Html.TextBoxFor(x => x.Servidor, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Servidor, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.CarpetaCertificado)
+                        @Html.TextBoxFor(x => x.CarpetaCertificado, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.CarpetaCertificado, null, new { @class = "label label-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Passcertificado)
+                        @Html.TextBoxFor(x => x.Passcertificado, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Passcertificado, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.UserSecundario)
+                        @Html.TextBoxFor(x => x.UserSecundario, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.UserSecundario, null, new { @class = "label label-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.PassSecundario)
+                        @Html.TextBoxFor(x => x.PassSecundario, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PassSecundario, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.CodMoneda)
+                        @Html.TextBoxFor(x => x.CodMoneda, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.CodMoneda, null, new { @class = "label label-danger" })
+                    </div>
+
+                </div>
+            </div>
+
+     
+
+
+            <div class="text-right">
+                <button type="submit" data-ajax="true" class="btn btn-primary">Guardar</button>
+            </div>
+
+        </div>
+     }
+
+</div>
